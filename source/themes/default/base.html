@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" >
+    <link rel="stylesheet" href="./style.css">
+    <title>{{ title_blog }}</title>
+</head>
+<body>
+    <div class="pure-sm-23-34 pure-md-21-24">
+        <div class="header">
+            <Ul>
+                <li><h2>{{ title_blog }}</h2></li>
+                {% for name,url in menu.items() %}
+                    <li><a href="{{ url }}">{{ name }} </a></li>
+                {% endfor %}
+            </Ul>
+        </div>
+        <div class="content" >
+        {% block content %}{% endblock %}
+        </div>
+    </div>
+</body>
+</html>

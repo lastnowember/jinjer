@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h3>_category -> {{ category }}</h3>
+        <ul>
+            {% for title, root in data.items() %}
+                    <li>[{{root[0].date}}] <a href="{{ root[0].url }}">{{ title }}</a></li>
+            {% endfor %}
+       </ul>
+ {% endblock %}

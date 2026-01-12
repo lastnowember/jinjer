@@ -1,0 +1,12 @@
+{ "settings":
+    [{
+
+        "blog_title" : "Jerry Blog",
+        "blog_description" : "",
+        "blog_keywords" : "",
+        "posts_per_page" : 5,
+        "theme" : "default"
+
+    }]
+    
+}
