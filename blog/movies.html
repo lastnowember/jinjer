@@ -3,36 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" >
-    <link rel="stylesheet" href="./style.css">
     <title>Jerry Blog</title>
-</head>
-<body>
-    <div class="pure-sm-23-34 pure-md-21-24">
-        <div class="header">
-            <Ul>
-                <li><h2>Jerry Blog</h2></li>
-                
-                    <li><a href="./menu1.html">menu1 </a></li>
-                
-                    <li><a href="./menu2.html">menu2 </a></li>
-                
-                    <li><a href="./menu3.html">menu3 </a></li>
-                
-            </Ul>
-        </div>
-        <div class="content" >
+    <link rel="stylesheet" href="source/css/styles.css">
+    </head>
+    <body>
+        <header class="site-header">
+            <h1 class="site-title">Jerry Blog</h1>
+            
+            <nav>
+                <ul class="site-menu">
+                    
+                        <li><a href="./menu1.html">menu1 </a></li>
+                    
+                        <li><a href="./menu2.html">menu2 </a></li>
+                    
+                        <li><a href="./menu3.html">menu3 </a></li>
+                    
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            
+    <header class="category-header">
+        <h2 class="category-title">movies</h2>
+    </header>
+
+    <div class="post-list">
         
-<h3>_category -> movies</h3>
-        <ul>
-            
-                    <li>[09-01-2026] <a href="./the_outrun.html">Обретая себя (2024)</a></li>
-            
-                    <li>[02-09-2025] <a href="./hello_again.html">hello 2</a></li>
-            
-       </ul>
- 
-        </div>
+            <article class="post-item">
+            <h2 class="post-title">
+                <a href="./the_outrun.html">Обретая себя (2024)</a>
+            </h2>
+            <div class="post-meta">
+                <span class="post-date">[09-01-2026]</span>
+            </div>
+        </article>
+        
+            <article class="post-item">
+            <h2 class="post-title">
+                <a href="./hello_again.html">hello 2</a>
+            </h2>
+            <div class="post-meta">
+                <span class="post-date">[02-09-2025]</span>
+            </div>
+        </article>
+        
     </div>
-</body>
+ 
+
+         </main>
+    
+        <!-- Модальное окно -->
+        <div id="imageModal" class="modal">
+            <span class="close">&times;</span>
+            <div class="modal-nav">
+                <span class="nav-arrow prev">&#10094;</span>
+                <span class="nav-arrow next">&#10095;</span>
+            </div>
+            <div class="modal-content-container">
+                <img class="modal-content" id="modalImg">
+            </div>
+        </div>
+
+        <script src="source/js/gallery.js"></script>
+    </body>
 </html>

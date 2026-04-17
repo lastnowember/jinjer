@@ -3,43 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" >
-    <link rel="stylesheet" href="./style.css">
     <title>Jerry Blog</title>
-</head>
-<body>
-    <div class="pure-sm-23-34 pure-md-21-24">
-        <div class="header">
-            <Ul>
-                <li><h2>Jerry Blog</h2></li>
-                
-                    <li><a href="./menu1.html">menu1 </a></li>
-                
-                    <li><a href="./menu2.html">menu2 </a></li>
-                
-                    <li><a href="./menu3.html">menu3 </a></li>
-                
-            </Ul>
+    <link rel="stylesheet" href="source/css/styles.css">
+    </head>
+    <body>
+        <header class="site-header">
+            <h1 class="site-title">Jerry Blog</h1>
+            
+            <nav>
+                <ul class="site-menu">
+                    
+                        <li><a href="./menu1.html">menu1 </a></li>
+                    
+                        <li><a href="./menu2.html">menu2 </a></li>
+                    
+                        <li><a href="./menu3.html">menu3 </a></li>
+                    
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            
+    
+    <article class="post-item">
+        <h2 class="post-title">
+            <a href="./new_test.html">Hello-3</a>
+        </h2>
+        <div class="post-meta">
+            <span class="post-date">[13-02-2025]</span>
+            <a href="books.html" class="post-category">books</a>
         </div>
-        <div class="content" >
-        
-        <ul>
-            
-            
-                    <li>[13-02-2025] <a href="./new_test.html">Hello-3</a> -> [books]</li>
-            
-            
-                    <li>[09-01-2026] <a href="./the_outrun.html">Обретая себя (2024)</a> -> [movies]</li>
-            
-            
-                    <li>[02-09-2025] <a href="./hello_again.html">hello 2</a> -> [movies]</li>
-            
-            
-                    <li>[13-02-2025] <a href="./mark_test_page.html">Hello</a> -> [books]</li>
-            
-       </ul>
+    </article>
+    
+    <article class="post-item">
+        <h2 class="post-title">
+            <a href="./the_outrun.html">Обретая себя (2024)</a>
+        </h2>
+        <div class="post-meta">
+            <span class="post-date">[09-01-2026]</span>
+            <a href="movies.html" class="post-category">movies</a>
+        </div>
+    </article>
+    
+    <article class="post-item">
+        <h2 class="post-title">
+            <a href="./hello_again.html">hello 2</a>
+        </h2>
+        <div class="post-meta">
+            <span class="post-date">[02-09-2025]</span>
+            <a href="movies.html" class="post-category">movies</a>
+        </div>
+    </article>
+    
+    <article class="post-item">
+        <h2 class="post-title">
+            <a href="./mark_test_page.html">Hello</a>
+        </h2>
+        <div class="post-meta">
+            <span class="post-date">[13-02-2025]</span>
+            <a href="books.html" class="post-category">books</a>
+        </div>
+    </article>
+    
+
  
+
+         </main>
+    
+        <!-- Модальное окно -->
+        <div id="imageModal" class="modal">
+            <span class="close">&times;</span>
+            <div class="modal-nav">
+                <span class="nav-arrow prev">&#10094;</span>
+                <span class="nav-arrow next">&#10095;</span>
+            </div>
+            <div class="modal-content-container">
+                <img class="modal-content" id="modalImg">
+            </div>
         </div>
-    </div>
-</body>
+
+        <script src="source/js/gallery.js"></script>
+    </body>
 </html>

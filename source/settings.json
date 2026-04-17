@@ -5,7 +5,7 @@
         "blog_description" : "",
         "blog_keywords" : "",
         "posts_per_page" : 5,
-        "theme" : "default"
+        "theme" : "journal"
 
     }]
     

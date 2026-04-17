@@ -1,33 +1,65 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" >
-    <link rel="stylesheet" href="./style.css">
     <title>Jerry Blog</title>
-</head>
-<body>
-    <div class="pure-sm-23-34 pure-md-21-24">
-        <div class="header">
-            <Ul>
-                <li><h2>Jerry Blog</h2></li>
-                
-                    <li><a href="./menu1.html">menu1 </a></li>
-                
-                    <li><a href="./menu2.html">menu2 </a></li>
-                
-                    <li><a href="./menu3.html">menu3 </a></li>
-                
-            </Ul>
+    <link rel="stylesheet" href="source/css/styles.css">
+    </head>
+    <body>
+        <header class="site-header">
+            <h1 class="site-title">Jerry Blog</h1>
+            
+            <nav>
+                <ul class="site-menu">
+                    
+                        <li><a href="./menu1.html">menu1 </a></li>
+                    
+                        <li><a href="./menu2.html">menu2 </a></li>
+                    
+                        <li><a href="./menu3.html">menu3 </a></li>
+                    
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            
+    <header class="article-header">
+        <h1>Hello-3</h1>
+        <div class="article-meta">
+            <span class="article-date">[13-02-2025]</span>
+            <a href="books.html" class="article-category">books</a>
         </div>
-        <div class="content" >
-        
-    <h1>Hello</h1>
+    </header>
+            
+    <article class="article-content">
+            
+            <h1>Hello</h1>
 <p>аылвоарлоырва gyjgjhgjhgjhgjhgывжащожолдлоыва <strong>chdsjhfjshdf</strong></p>
 <p>fjkhsdgfhgsdf adfljhskjdhfkhjhsdf jhkjhkhkjh</p>
+            <h1>Hello</h1>
+<p>аылвоарлоырва gyjgjhgjhgjhgjhgывжащожолдлоыва <strong>chdsjhfjshdf</strong></p>
+<p>fjkhsdgfhgsdf adfljhskjdhfkhjhsdf jhkjhkhkjh</p>
+    </article>
+    
 
+
+         </main>
+    
+        <!-- Модальное окно -->
+        <div id="imageModal" class="modal">
+            <span class="close">&times;</span>
+            <div class="modal-nav">
+                <span class="nav-arrow prev">&#10094;</span>
+                <span class="nav-arrow next">&#10095;</span>
+            </div>
+            <div class="modal-content-container">
+                <img class="modal-content" id="modalImg">
+            </div>
         </div>
-    </div>
-</body>
+
+        <script src="source/js/gallery.js"></script>
+    </body>
 </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title_blog }}</title>
+    <link rel="stylesheet" href="source/css/styles.css">
+    </head>
+    <body>
+        <header class="site-header">
+            <h1 class="site-title">{{ title_blog }}</h1>
+            
+            <nav>
+                <ul class="site-menu">
+                    {% for name,url in menu.items() %}
+                        <li><a href="{{ url }}">{{ name }} </a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            {% block content %}{% endblock %}
+
+         </main>
+    
+        <!-- Модальное окно -->
+        <div id="imageModal" class="modal">
+            <span class="close">&times;</span>
+            <div class="modal-nav">
+                <span class="nav-arrow prev">&#10094;</span>
+                <span class="nav-arrow next">&#10095;</span>
+            </div>
+            <div class="modal-content-container">
+                <img class="modal-content" id="modalImg">
+            </div>
+        </div>
+
+        <script src="source/js/gallery.js"></script>
+    </body>
+</html>

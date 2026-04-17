@@ -195,15 +195,18 @@ def copyImages():
             shutil.copy(file_posts, file_blog)
 
 
-# Copy file style.css from theme folder in blog folder
-def copyStyle():
+# Copy source files from theme folder in blog folder
 
+def copySource():
     theme_path = constants.THEMES_PATH + '/' + getTheme() + '/'
-    style_file = 'style.css'
-    theme_style = theme_path + style_file
-    blog_style = constants.BLOG_PATH +style_file
+    source_folder = 'source/'
+    theme_source = theme_path + source_folder
+    blog_source = constants.BLOG_PATH + source_folder
 
-    shutil.copy(theme_style, blog_style, follow_symlinks=True)
+    if os.path.exists(blog_source):
+        shutil.rmtree(blog_source)
+
+    shutil.copytree(theme_source, blog_source)
 
 def generateBlog():
     types = ['posts']
@@ -243,7 +246,7 @@ def generateBlog():
     copyImages()
 
     # Generate index.html
-    copyStyle()
+    copySource()
     createHtmlFiles(index_data, 'index')
 
 
