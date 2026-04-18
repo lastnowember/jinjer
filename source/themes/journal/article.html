@@ -11,8 +11,6 @@
     </header>
             
     <article class="article-content">
-            {% set wrapped_text = text|replace('<img ', '<div class="article-main-image"><img ') %}
-            {{ wrapped_text|replace('</img>', '</img></div>')|replace('/>', '/></div>')|safe }}
             {{ text }}
     </article>
     

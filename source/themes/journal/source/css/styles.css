@@ -69,7 +69,7 @@ body {
 .post-title {
     font-size: 22px;
     font-weight: normal;
-    margin-bottom: 8px;
+    margin-bottom: 0.2em;
 }
 
 .post-title a {
@@ -79,6 +79,11 @@ body {
 
 .post-title a:hover {
     text-decoration: underline;
+}
+
+.post-description {
+    font-size: 0.9em;
+    margin-bottom: 0.3em;
 }
 
 .post-meta {
@@ -96,6 +101,7 @@ body {
 .post-meta a:hover {
     text-decoration: underline;
 }
+
 
 /* Стили для страницы статьи */
 .article-header {

@@ -139,6 +139,19 @@ def createData(income_data:tuple) -> dict:
 def createCategoryData(category):
     pass
 
+def sortPostsDate(posts):
+
+    # Преобразуем словарь в список кортежей и сортируем
+    sorted_items = sorted(
+        posts.items(),
+        key=lambda x: datetime.strptime(x[1][0]['date'], '%d-%m-%Y'),
+        reverse=True  # для убывания
+    )
+
+    # Преобразуем обратно в словарь (Python 3.7+ сохраняет порядок)
+    sorted_posts = dict(sorted_items)
+    return sorted_posts
+
 def createHtmlFiles(data, type:str, cat_key = ''):
 
     env = loadTemplate()
@@ -171,7 +184,7 @@ def getMarkdown(markdown_file:str):
     with open(md_file_path, 'r') as md_file:
         md_text = md_file.read()
 
-    md = markdown.Markdown(extensions=['meta'])
+    md = markdown.Markdown(extensions=['meta', 'md_in_html'])
     md_html = md.convert(md_text)
     meta = md.Meta
 
@@ -183,17 +196,31 @@ def generateMenu():
 
     return data_json
 
-def copyImages():
-    files_posts = os.listdir(constants.IMG_POSTS_PATH)
-    files_blog = os.listdir(constants.IMG_BLOG_PATH)
-    for file in files_posts:
-        if file in files_blog:
-            continue
-        else:
-            file_posts = constants.IMG_POSTS_PATH + file
-            file_blog = constants.IMG_BLOG_PATH + file
-            shutil.copy(file_posts, file_blog)
+def copyImages(post_name):
+    post_images_path = constants.POSTS_IMAGES + post_name
+    blog_images_path = constants.BLOG_IMAGES + post_name
+    
 
+    if os.path.exists(post_images_path):
+
+        post_images = os.listdir(post_images_path)
+
+        if not os.path.exists(blog_images_path):
+            os.makedirs(blog_images_path)
+        
+        blog_images = os.listdir(blog_images_path)
+
+        for file in post_images:
+            if file in blog_images:
+                continue
+            else:
+                file_posts = post_images_path + '/' + file
+                file_blog = blog_images_path + '/' + file
+                shutil.copy(file_posts, file_blog)
+    else:
+        error_folder_image = 'Images folder article - ' + post_name + ' - not exists' 
+        print(error_folder_image)
+            
 
 # Copy source files from theme folder in blog folder
 
@@ -224,6 +251,10 @@ def generateBlog():
             if os.path.isdir(file_path):
                 continue
             create_data = createData(getMarkdown(file))
+
+             # copy images
+            copyImages(create_data['url'])
+
             urls = './' + create_data['url'] + '.html'
             try:
                 category_data[create_data['category']].append({'title': create_data['title'], 'url': urls, 'date': create_data['date']})
@@ -231,7 +262,7 @@ def generateBlog():
                 category_data[create_data['category']] = []
                 category_data[create_data['category']].append({'title': create_data['title'], 'url': urls, 'date': create_data['date']})
 
-            index_data[create_data['title']] = [{'url': urls, 'date': create_data['date'], 'category':create_data['category']}]
+            index_data[create_data['title']] = [{'url': urls, 'date': create_data['date'], 'category':create_data['category'], 'description':create_data['description']}]
             createHtmlFiles(create_data, 'article')
 
     # generate category pages
@@ -242,12 +273,14 @@ def generateBlog():
         createHtmlFiles(category_list, 'category', cat_key=key)
         category_list = {}
 
-    # copy images
-    copyImages()
-
-    # Generate index.html
+    # copy source/ folder
     copySource()
-    createHtmlFiles(index_data, 'index')
+
+    # sort posts py date
+    index_posts = sortPostsDate(index_data)
+    
+    # generate index.html
+    createHtmlFiles(index_posts, 'index')
 
 
 

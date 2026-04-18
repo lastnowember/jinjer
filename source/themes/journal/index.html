@@ -6,8 +6,11 @@
         <h2 class="post-title">
             <a href="{{ root[0].url }}">{{ title }}</a>
         </h2>
+        <div class="post-description">
+            {{ root[0].description }}
+        </div>
         <div class="post-meta">
-            <span class="post-date">[{{root[0].date}}]</span>
+            <span class="post-date">{{root[0].date}}</span>
             <a href="{{root[0].category}}.html" class="post-category">{{root[0].category}}</a>
         </div>
     </article>
